@@ -192,8 +192,51 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Apply 3D transform to card image
             targetImg.style.transform = `perspective(500px) rotateX(${rX}deg) rotateY(${rY}deg) scale(${sc})`;
-        });
     });
+
+    // ==========================================
+    // 5.5. Image Carousel for Forest Clearing card
+    // ==========================================
+    const forestImg = document.getElementById('forest-img');
+    const forestPrev = document.getElementById('btn-forest-prev');
+    const forestNext = document.getElementById('btn-forest-next');
+    const forestCounter = document.getElementById('forest-counter');
+
+    const forestImages = [
+        'gallery_assets/user_forest_2.png',
+        'gallery_assets/user_forest_1.jpg',
+        'gallery_assets/user_forest_3.jpg',
+        'gallery_assets/user_forest_4.jpg'
+    ];
+    let currentForestIndex = 0;
+
+    function updateForestCarousel() {
+        if (forestImg && forestCounter) {
+            // Apply a quick fade transition
+            forestImg.style.opacity = '0.3';
+            setTimeout(() => {
+                forestImg.src = forestImages[currentForestIndex];
+                forestCounter.textContent = `${currentForestIndex + 1} / ${forestImages.length}`;
+                forestImg.style.opacity = '1';
+            }, 150);
+        }
+    }
+
+    if (forestPrev) {
+        forestPrev.addEventListener('click', (e) => {
+            e.stopPropagation(); // Avoid triggering selection highlight
+            currentForestIndex = (currentForestIndex - 1 + forestImages.length) % forestImages.length;
+            updateForestCarousel();
+        });
+    }
+
+    if (forestNext) {
+        forestNext.addEventListener('click', (e) => {
+            e.stopPropagation(); // Avoid triggering selection highlight
+            currentForestIndex = (currentForestIndex + 1) % forestImages.length;
+            updateForestCarousel();
+        });
+    }
 
     // ==========================================
     // 6. Interactive 3D Wireframe Canvas Engine

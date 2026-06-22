@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (itemTarget === 'island') targetCard = document.getElementById('card-island');
                 if (itemTarget === 'chest') targetCard = document.getElementById('card-chest');
                 if (itemTarget === 'dungeon') targetCard = document.getElementById('card-dungeon');
+                if (itemTarget === 'rock') targetCard = document.getElementById('card-rock');
 
                 if (targetCard) {
                     setTimeout(() => {
@@ -196,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (cardId === 'card-island') prefix = 'island';
             if (cardId === 'card-chest') prefix = 'chest';
             if (cardId === 'card-dungeon') prefix = 'dungeon';
+            if (cardId === 'card-rock') prefix = 'rock';
 
             const valX = document.getElementById(`val-${prefix}-x`);
             const valY = document.getElementById(`val-${prefix}-y`);
@@ -295,6 +297,47 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation(); // Avoid triggering selection highlight
             currentCharIndex = (currentCharIndex + 1) % charImages.length;
             updateCharCarousel();
+        });
+    }
+
+    // ==========================================
+    // 5.7. Image Carousel for Low-Poly Rock card
+    // ==========================================
+    const rockImg = document.getElementById('rock-img');
+    const rockPrev = document.getElementById('btn-rock-prev');
+    const rockNext = document.getElementById('btn-rock-next');
+    const rockCounter = document.getElementById('rock-counter');
+
+    const rockImages = [
+        'gallery_assets/user_rock_1.png',
+        'gallery_assets/user_rock_2.png'
+    ];
+    let currentRockIndex = 0;
+
+    function updateRockCarousel() {
+        if (rockImg && rockCounter) {
+            rockImg.style.opacity = '0.3';
+            setTimeout(() => {
+                rockImg.src = rockImages[currentRockIndex];
+                rockCounter.textContent = `${currentRockIndex + 1} / ${rockImages.length}`;
+                rockImg.style.opacity = '1';
+            }, 150);
+        }
+    }
+
+    if (rockPrev) {
+        rockPrev.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentRockIndex = (currentRockIndex - 1 + rockImages.length) % rockImages.length;
+            updateRockCarousel();
+        });
+    }
+
+    if (rockNext) {
+        rockNext.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentRockIndex = (currentRockIndex + 1) % rockImages.length;
+            updateRockCarousel();
         });
     }
 

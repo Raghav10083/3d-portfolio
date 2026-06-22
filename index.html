@@ -72,6 +72,9 @@
                         <div class="outliner-item" data-target="gallery" data-item="dungeon">
                             <span class="tree-icon">◆</span> BP_Jade_Oni_Mask
                         </div>
+                        <div class="outliner-item" data-target="gallery" data-item="rock">
+                            <span class="tree-icon">◆</span> BP_LowPoly_Rock
+                        </div>
                     </div>
                     <div class="outliner-item" data-target="skills">
                         <span class="tree-icon">🔧</span> Details_Components
@@ -297,6 +300,66 @@
                                         <div class="transform-col"><span class="transform-label label-neutral" style="background:#444">Verts</span><span class="transform-val">3,120</span></div>
                                         <div class="transform-col"><span class="transform-label label-neutral" style="background:#444">Faces</span><span class="transform-val">2,800</span></div>
                                         <div class="transform-col"><span class="transform-label label-neutral" style="background:#444">Tris</span><span class="transform-val">5,400</span></div>
+                                    </div>
+                                </div>
+
+                                <div class="card-meta">
+                                    <span class="tool-badge">Substance Painter</span>
+                                    <span class="tool-badge">User Work</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Low-Poly Rock Card -->
+                        <div class="gallery-card" data-category="substance" id="card-rock">
+                            <div class="card-header-tab">
+                                <span><span class="object-icon">◆</span>BP_LowPoly_Rock.uasset</span>
+                                <span class="visibility-icon">👁</span>
+                            </div>
+                            <div class="card-img-container">
+                                <img src="gallery_assets/user_rock_1.png" alt="Stylized Low-Poly Rock in Substance Painter" class="transform-target" id="rock-img">
+                                <button class="carousel-control prev" id="btn-rock-prev" aria-label="Previous Image">◀</button>
+                                <button class="carousel-control next" id="btn-rock-next" aria-label="Next Image">▶</button>
+                                <span class="carousel-counter" id="rock-counter">1 / 2</span>
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">Stylized Rock Shading</h3>
+                                <p class="card-desc">Work-in-progress shading on a stylized low-poly rock prop in Adobe Substance 3D Painter. Demonstrates facet-color gradient painting and UV coordinate alignment templates to achieve textured facets.</p>
+                                
+                                <!-- Interactive transform box -->
+                                <div class="transform-fields-panel">
+                                    <div class="transform-title">Mesh Transform</div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation X</span>
+                                            <span class="slider-label-value" id="val-rock-x">0°</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateX" min="-180" max="180" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation Y</span>
+                                            <span class="slider-label-value" id="val-rock-y">0°</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateY" min="-180" max="180" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="slider-container" style="margin-bottom: 0.8rem;">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Scale</span>
+                                            <span class="slider-label-value" id="val-rock-scale">1.00x</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="scale" min="0.5" max="1.5" step="0.05" value="1.0">
+                                        </div>
+                                    </div>
+                                    <div class="transform-row">
+                                        <div class="transform-col"><span class="transform-label label-neutral" style="background:#444">Verts</span><span class="transform-val">86</span></div>
+                                        <div class="transform-col"><span class="transform-label label-neutral" style="background:#444">Faces</span><span class="transform-val">80</span></div>
+                                        <div class="transform-col"><span class="transform-label label-neutral" style="background:#444">Tris</span><span class="transform-val">160</span></div>
                                     </div>
                                 </div>
 

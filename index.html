@@ -9,18 +9,26 @@
 </head>
 <body>
 
-    <!-- Sticky Navigation -->
+    <!-- Blender Style Header Nav -->
     <header id="main-header">
+        <div class="top-bar-menu">
+            <div class="top-menu-item">File</div>
+            <div class="top-menu-item">Edit</div>
+            <div class="top-menu-item">Render</div>
+            <div class="top-menu-item">Window</div>
+            <div class="top-menu-item">Help</div>
+            <div class="top-menu-item" style="margin-left: auto; color: var(--text-dark);">v3.5.0</div>
+        </div>
         <div class="container">
             <nav>
                 <a href="#" class="logo">
-                    <span>//</span> RAGHAV
+                    <span>3D</span> RAGHAV
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#gallery">Showcase</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#hero" class="active">Layout</a></li>
+                    <li><a href="#gallery">Modeling</a></li>
+                    <li><a href="#skills">Shading</a></li>
+                    <li><a href="#contact">Rendering</a></li>
                 </ul>
                 <button class="burger" aria-label="Toggle navigation menu">
                     <span></span>
@@ -31,133 +39,145 @@
         </div>
     </header>
 
-    <!-- Glowing Background Highlights -->
-    <div class="glow-spot glow-cyan"></div>
-    <div class="glow-spot glow-purple"></div>
-
-    <!-- Hero Section -->
+    <!-- 3D Viewport Hero Section -->
     <section id="hero" class="hero">
-        <div class="hero-geometric-bg">
-            <div class="hero-grid-overlay"></div>
-            <!-- Floating low-poly elements -->
-            <div class="floating-shape shape-1">
-                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor">
-                    <polygon points="50,15 90,80 10,80" stroke-width="1" />
-                    <line x1="50" y1="15" x2="50" y2="80" stroke-width="0.8" stroke-dasharray="2,2" />
-                </svg>
-            </div>
-            <div class="floating-shape shape-2">
-                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor">
-                    <polygon points="50,5 95,50 50,95 5,50" stroke-width="1" />
-                    <line x1="5" y1="50" x2="95" y2="50" stroke-width="0.8" stroke-dasharray="2,2" />
-                    <line x1="50" y1="5" x2="50" y2="95" stroke-width="0.8" stroke-dasharray="2,2" />
-                </svg>
-            </div>
-            <div class="floating-shape shape-3">
-                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor">
-                    <polygon points="50,10 90,35 90,75 50,95 10,75 10,35" stroke-width="1" />
-                    <line x1="50" y1="10" x2="50" y2="95" stroke-width="0.8" stroke-dasharray="2,2" />
-                    <line x1="10" y1="35" x2="90" y2="75" stroke-width="0.8" stroke-dasharray="2,2" />
-                    <line x1="90" y1="35" x2="10" y2="75" stroke-width="0.8" stroke-dasharray="2,2" />
-                </svg>
-            </div>
-        </div>
+        <!-- Axes -->
+        <div class="viewport-axis axis-x"></div>
+        <div class="viewport-axis axis-y"></div>
+        <!-- Floating wireframe shape background -->
+        <div class="wireframe-mesh mesh-cube"></div>
+
         <div class="hero-content">
-            <h1 class="hero-title">Crafting <span class="glow">3D Worlds</span> & Stylized Assets</h1>
+            <span class="viewport-info-tag">User Perspective | Orthographic</span>
+            <h1 class="hero-title">Raghav <span>//</span> 3D Artist</h1>
             <p class="hero-subtitle">
-                3D Artist specializing in <span>Blender Low-Poly Modeling</span>, <span>Substance Painter Texturing</span>, and atmospheric <span>Unreal Engine Environments</span>.
+                Designing <span>Low-Poly Meshes</span> in Blender, mapping custom textures in <span>Substance Painter</span>, and constructing real-time environments in <span>Unreal Engine</span>.
             </p>
             <div class="btn-container">
-                <a href="#gallery" class="btn btn-primary">View Showcase</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                <a href="#gallery" class="btn btn-primary">Enter Viewport</a>
+                <a href="#contact" class="btn btn-secondary">Export Contact</a>
             </div>
         </div>
     </section>
 
-    <!-- Gallery / Showcase Section -->
+    <!-- Showcase Section (Modeling Tab) -->
     <section id="gallery">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Portfolio</span>
-                <h2 class="section-title">Featured Creations</h2>
+                <span class="section-tag">Collections</span>
+                <h2 class="section-title">Scene Hierarchy</h2>
             </div>
 
-            <!-- Filters -->
+            <!-- Filters (Simulated outliner toggle filters) -->
             <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Assets</button>
-                <button class="filter-btn" data-filter="lowpoly">Low-Poly Models</button>
-                <button class="filter-btn" data-filter="substance">Props & Textures</button>
+                <button class="filter-btn active" data-filter="all">All Objects</button>
+                <button class="filter-btn" data-filter="lowpoly">Low-Poly</button>
+                <button class="filter-btn" data-filter="substance">Texturing</button>
                 <button class="filter-btn" data-filter="unreal">Environments</button>
             </div>
 
-            <!-- Grid -->
+            <!-- Grid of Property Inspect Panels -->
             <div class="gallery-grid">
                 
-                <!-- Floating Island -->
-                <div class="gallery-card glass-panel" data-category="lowpoly">
+                <!-- Floating Island Card -->
+                <div class="gallery-card" data-category="lowpoly">
+                    <div class="card-header-tab">
+                        <span><span class="object-icon">◆</span>Skyward_Island.obj</span>
+                        <span class="visibility-icon">👁</span>
+                    </div>
                     <div class="card-img-container">
                         <img src="gallery_assets/floating_island.png" alt="Low-Poly Floating Island Model in Blender">
-                        <div class="card-overlay">
-                            <div class="card-overlay-content">
-                                <span class="card-tag">Blender</span>
-                                <p style="font-size: 0.85rem; color: var(--text-main);">Low-poly topology with high aesthetic lighting.</p>
-                            </div>
-                        </div>
                     </div>
                     <div class="card-info">
-                        <div>
-                            <h3 class="card-title">Skyward Miniatures</h3>
-                            <p class="card-desc">Floating island model complete with a tiny dwelling, stylized pine trees, and a waterfall cascading into space.</p>
+                        <h3 class="card-title">Skyward Miniatures</h3>
+                        <p class="card-desc">Floating island model complete with a tiny dwelling, stylized pine trees, and a waterfall cascading into space.</p>
+                        
+                        <!-- Blender style transform box -->
+                        <div class="transform-fields-panel">
+                            <div class="transform-title">Mesh Coordinates</div>
+                            <div class="transform-row">
+                                <div class="transform-col"><span class="transform-label label-x">X</span><span class="transform-val">0.00m</span></div>
+                                <div class="transform-col"><span class="transform-label label-y">Y</span><span class="transform-val">12.50m</span></div>
+                                <div class="transform-col"><span class="transform-label label-z">Z</span><span class="transform-val">4.20m</span></div>
+                            </div>
+                            <div class="transform-row">
+                                <div class="transform-col"><span class="transform-label label-x">V</span><span class="transform-val">1,240</span></div>
+                                <div class="transform-col"><span class="transform-label label-y">F</span><span class="transform-val">850</span></div>
+                                <div class="transform-col"><span class="transform-label label-z">T</span><span class="transform-val">1,600</span></div>
+                            </div>
                         </div>
+
                         <div class="card-meta">
+                            <span class="tool-badge">Blender 3.5</span>
                             <span class="tool-badge">Low-Poly</span>
-                            <span class="tool-badge">Blender</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sci-Fi Chest -->
-                <div class="gallery-card glass-panel" data-category="substance">
+                <!-- Sci-Fi Chest Card -->
+                <div class="gallery-card" data-category="substance">
+                    <div class="card-header-tab">
+                        <span><span class="object-icon">◆</span>SciFi_Chest.fbx</span>
+                        <span class="visibility-icon">👁</span>
+                    </div>
                     <div class="card-img-container">
                         <img src="gallery_assets/sci_fi_chest.png" alt="Substance Painter Textured Sci-Fi Prop">
-                        <div class="card-overlay">
-                            <div class="card-overlay-content">
-                                <span class="card-tag">Substance Painter</span>
-                                <p style="font-size: 0.85rem; color: var(--text-main);">Realistic metal weathering combined with neon emission channels.</p>
-                            </div>
-                        </div>
                     </div>
                     <div class="card-info">
-                        <div>
-                            <h3 class="card-title">Cybernetic Cache</h3>
-                            <p class="card-desc">Hard surface model prop textured with metallic roughness maps, surface scratching, and ambient purple emission lines.</p>
+                        <h3 class="card-title">Cybernetic Cache</h3>
+                        <p class="card-desc">Hard surface model prop textured with metallic roughness maps, surface scratching, and ambient purple emission lines.</p>
+                        
+                        <!-- Blender style transform box -->
+                        <div class="transform-fields-panel">
+                            <div class="transform-title">Material Parameters</div>
+                            <div class="transform-row">
+                                <div class="transform-col"><span class="transform-label label-x">M</span><span class="transform-val">PBR Metallic</span></div>
+                                <div class="transform-col"><span class="transform-label label-y">R</span><span class="transform-val">2048 x 2048</span></div>
+                            </div>
+                            <div class="transform-row">
+                                <div class="transform-col"><span class="transform-label label-x">V</span><span class="transform-val">2,410</span></div>
+                                <div class="transform-col"><span class="transform-label label-y">F</span><span class="transform-val">2,200</span></div>
+                                <div class="transform-col"><span class="transform-label label-z">T</span><span class="transform-val">4,120</span></div>
+                            </div>
                         </div>
+
                         <div class="card-meta">
-                            <span class="tool-badge">PBR Texturing</span>
-                            <span class="tool-badge">Substance</span>
+                            <span class="tool-badge">Substance Painter</span>
+                            <span class="tool-badge">Weathered</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Dungeon Environment -->
-                <div class="gallery-card glass-panel" data-category="unreal">
+                <!-- Dungeon Environment Card -->
+                <div class="gallery-card" data-category="unreal">
+                    <div class="card-header-tab">
+                        <span><span class="object-icon">◆</span>Dungeon_Level.umap</span>
+                        <span class="visibility-icon">👁</span>
+                    </div>
                     <div class="card-img-container">
                         <img src="gallery_assets/dungeon_environment.png" alt="Unreal Engine Dungeon Level Environment Design">
-                        <div class="card-overlay">
-                            <div class="card-overlay-content">
-                                <span class="card-tag">Unreal Engine</span>
-                                <p style="font-size: 0.85rem; color: var(--text-main);">Real-time volumetric lighting and atmospheric environmental effects.</p>
-                            </div>
-                        </div>
                     </div>
                     <div class="card-info">
-                        <div>
-                            <h3 class="card-title">Eldritch Ruins</h3>
-                            <p class="card-desc">Atmospheric fantasy dungeon level built with stone pillars, glowing crystal nodes, and custom fog particles.</p>
+                        <h3 class="card-title">Eldritch Ruins</h3>
+                        <p class="card-desc">Atmospheric fantasy dungeon level built with stone pillars, glowing crystal nodes, and custom fog particles.</p>
+                        
+                        <!-- Blender style transform box -->
+                        <div class="transform-fields-panel">
+                            <div class="transform-title">World Properties</div>
+                            <div class="transform-row">
+                                <div class="transform-col"><span class="transform-label label-x">L</span><span class="transform-val">Lumen</span></div>
+                                <div class="transform-col"><span class="transform-label label-y">F</span><span class="transform-val">Nanite Meshes</span></div>
+                            </div>
+                            <div class="transform-row">
+                                <div class="transform-col"><span class="transform-label label-x">V</span><span class="transform-val">120,400</span></div>
+                                <div class="transform-col"><span class="transform-label label-y">F</span><span class="transform-val">95,800</span></div>
+                                <div class="transform-col"><span class="transform-label label-z">T</span><span class="transform-val">180,450</span></div>
+                            </div>
                         </div>
+
                         <div class="card-meta">
-                            <span class="tool-badge">Level Art</span>
-                            <span class="tool-badge">Unreal Engine</span>
+                            <span class="tool-badge">Unreal Engine 5</span>
+                            <span class="tool-badge">Lighting Setup</span>
                         </div>
                     </div>
                 </div>
@@ -166,82 +186,96 @@
         </div>
     </section>
 
-    <!-- Skills & Workflow Section -->
+    <!-- Skills (Shading Tab) -->
     <section id="skills">
         <div class="container">
             <div class="skills-container">
                 
-                <!-- Skill Levels -->
+                <!-- Skill Modifiers Stack -->
                 <div>
-                    <div class="section-header" style="text-align: left; margin-bottom: 3rem;">
-                        <span class="section-tag">Arsenal</span>
-                        <h2 class="section-title">Technical Expertise</h2>
+                    <div class="section-header" style="text-align: left; margin-bottom: 2.5rem;">
+                        <span class="section-tag">Modifiers</span>
+                        <h2 class="section-title">Active Modifier Stack</h2>
                     </div>
                     
                     <div class="skills-grid">
-                        <!-- Blender -->
-                        <div class="skill-card glass-panel">
-                            <div class="skill-info-row">
-                                <div class="skill-name">
-                                    <span class="skill-icon">B</span> Blender (Low-Poly Modeling)
-                                </div>
-                                <span class="skill-percentage">85%</span>
+                        
+                        <!-- Blender Skill -->
+                        <div class="modifier-panel">
+                            <div class="modifier-header">
+                                <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Blender_Modeler</span>
+                                <span class="visibility-icon">👁</span>
                             </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-width="85%"></div>
+                            <div class="modifier-body">
+                                <div class="modifier-property-row">
+                                    <span class="modifier-property-label">Low-Poly Modeling:</span>
+                                    <div class="modifier-value-bar-container">
+                                        <div class="modifier-value-fill" data-width="85%"></div>
+                                        <span class="modifier-value-percent">8.5 / 10</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Substance Painter -->
-                        <div class="skill-card glass-panel">
-                            <div class="skill-info-row">
-                                <div class="skill-name substance">
-                                    <span class="skill-icon">S</span> Substance Painter (Texturing)
-                                </div>
-                                <span class="skill-percentage">70%</span>
+                        <!-- Substance Skill -->
+                        <div class="modifier-panel">
+                            <div class="modifier-header">
+                                <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Substance_Shader</span>
+                                <span class="visibility-icon">👁</span>
                             </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-width="70%" style="background: linear-gradient(to right, #8a2be2, #e22b8a);"></div>
+                            <div class="modifier-body">
+                                <div class="modifier-property-row">
+                                    <span class="modifier-property-label">PBR Texturing:</span>
+                                    <div class="modifier-value-bar-container">
+                                        <div class="modifier-value-fill" data-width="70%"></div>
+                                        <span class="modifier-value-percent">7.0 / 10</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Unreal Engine -->
-                        <div class="skill-card glass-panel">
-                            <div class="skill-info-row">
-                                <div class="skill-name unreal">
-                                    <span class="skill-icon">U</span> Unreal Engine (Environment Art)
-                                </div>
-                                <span class="skill-percentage">65%</span>
+                        <!-- Unreal Skill -->
+                        <div class="modifier-panel">
+                            <div class="modifier-header">
+                                <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Unreal_Level_Art</span>
+                                <span class="visibility-icon">👁</span>
                             </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-width="65%" style="background: linear-gradient(to right, #8a2be2, #ffffff);"></div>
+                            <div class="modifier-body">
+                                <div class="modifier-property-row">
+                                    <span class="modifier-property-label">Environment Design:</span>
+                                    <div class="modifier-value-bar-container">
+                                        <div class="modifier-value-fill" data-width="65%"></div>
+                                        <span class="modifier-value-percent">6.5 / 10</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
-                <!-- Workflow Pipeline -->
+                <!-- Workflow outliner -->
                 <div>
-                    <div class="section-header" style="text-align: left; margin-bottom: 3rem;">
-                        <span class="section-tag">Process</span>
-                        <h2 class="section-title">Asset Pipeline</h2>
+                    <div class="section-header" style="text-align: left; margin-bottom: 2.5rem;">
+                        <span class="section-tag">Outliner</span>
+                        <h2 class="section-title">Creation Workflow</h2>
                     </div>
                     
                     <div class="workflow-timeline">
                         <div class="workflow-step">
                             <div class="workflow-dot"></div>
-                            <h3>1. Modeling in Blender</h3>
-                            <p>Designing optimized, low-poly geometries and models. Prioritizing shape silhouettes, clean topology, and smart UV unwrapping.</p>
+                            <h3>1. Poly-Modeling [Blender]</h3>
+                            <p>Designing optimized, low-poly geometries and meshes. Prioritizing layout blockouts, silhouette forms, clean topology, and smart UV unwrapping.</p>
                         </div>
                         <div class="workflow-step">
                             <div class="workflow-dot"></div>
-                            <h3>2. Texturing in Substance Painter</h3>
-                            <p>Baking ambient occlusion and normal maps, applying custom stylized or semi-realistic smart materials, adding custom edge wear and emissions.</p>
+                            <h3>2. Texture Baking [Substance Painter]</h3>
+                            <p>Baking ambient occlusion maps and normal coordinates. Painting smart materials, layered metal roughness, custom scratches, and glowing emission maps.</p>
                         </div>
                         <div class="workflow-step">
                             <div class="workflow-dot"></div>
-                            <h3>3. Level Setup in Unreal Engine</h3>
-                            <p>Assembling modular assets in Unreal Engine, setting up materials/shaders, tweaking post-processing volumes, and placing dynamic lighting to capture the mood.</p>
+                            <h3>3. Shading & Lighting [Unreal Engine]</h3>
+                            <p>Assembling scene layouts inside Unreal Engine, configuring landscape materials, dialing in volumetric fog, and setting up lumen lighting.</p>
                         </div>
                     </div>
                 </div>
@@ -250,44 +284,34 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section (Rendering Tab) -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="contact-grid">
                 
                 <!-- Contact Info -->
                 <div class="contact-info">
-                    <span class="section-tag">Let's Collaborate</span>
-                    <h2 class="contact-title">Let's create worlds together</h2>
+                    <span class="section-tag">Render Properties</span>
+                    <h2 class="contact-title">Export Dialogue</h2>
                     <p class="contact-desc">
-                        Looking for unique low-poly game assets or atmosphere-heavy environment design? Send a message and let's bring your creative visions to life.
+                        Need game assets modeled, textures painted, or level art configured? Set your variables and request a render below.
                     </p>
 
                     <div class="contact-details">
                         <!-- Email -->
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                    <path d="M22 6l-10 7L2 6"/>
-                                </svg>
-                            </div>
+                            <div class="contact-icon">📧</div>
                             <div class="contact-text">
-                                <h4>Email</h4>
+                                <h4>Destination Address</h4>
                                 <p>raghav@example.com</p>
                             </div>
                         </div>
 
                         <!-- Location -->
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
-                            </div>
+                            <div class="contact-icon">📍</div>
                             <div class="contact-text">
-                                <h4>Location</h4>
+                                <h4>Global Origin</h4>
                                 <p>India</p>
                             </div>
                         </div>
@@ -296,34 +320,35 @@
                     <!-- Social links -->
                     <div class="social-links">
                         <a href="#" class="social-btn" aria-label="Artstation">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M2.38 18.847l1.042 1.8h9.873l-1.043-1.8H2.38zm18.34-5.2l-3.32-5.748L11.517 18h6.643l2.56-4.353zM16.327 4.143H8.384L15.938 17.2h2.08L16.327 4.143zM6.924 6.643L1.043 16.8h5.88l5.882-10.157H6.924z"/>
                             </svg>
                         </a>
                         <a href="https://github.com/Raghav10083" class="social-btn" target="_blank" aria-label="GitHub">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                             </svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Contact Form Panel -->
-                <div class="contact-form-panel glass-panel">
-                    <form id="contact-form">
+                <!-- Export Dialogue Settings Panel -->
+                <div class="contact-form-panel">
+                    <div class="form-header-tab">export_scene.fbx</div>
+                    <form id="contact-form" class="form-body">
                         <div class="form-group">
-                            <label class="form-label" for="name">Name</label>
-                            <input class="form-input" type="text" id="name" required placeholder="John Doe">
+                            <label class="form-label" for="name">Sender Name</label>
+                            <input class="form-input" type="text" id="name" required placeholder="User_Name">
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="email">Email</label>
-                            <input class="form-input" type="email" id="email" required placeholder="john@example.com">
+                            <label class="form-label" for="email">Reply Target Address</label>
+                            <input class="form-input" type="email" id="email" required placeholder="user@target.com">
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="message">Message</label>
-                            <textarea class="form-input" id="message" required placeholder="Tell me about your project..."></textarea>
+                            <label class="form-label" for="message">Transmission Message</label>
+                            <textarea class="form-input" id="message" required placeholder="Outline project deliverables, timeline, polygon count, etc..."></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">Send Transmission</button>
+                        <button type="submit" class="submit-btn">Execute Export</button>
                     </form>
                 </div>
 
@@ -334,7 +359,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p class="footer-text">&copy; 2026 Raghav. Built for <span>3D Environments & Low-Poly Art</span>.</p>
+            <p class="footer-text">&copy; 2026 Raghav. Workspace configured for <span>Low-Poly & Environment Art</span>.</p>
         </div>
     </footer>
 

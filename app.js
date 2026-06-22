@@ -6,38 +6,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     burger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        burger.classList.toggle('toggle');
     });
 
-    // Close menu when clicking link
+    // Handle Active Navigation Tabs on Click
     navLinksArray.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            // Remove active from all links
+            navLinksArray.forEach(lnk => lnk.classList.remove('active'));
+            // Add active to clicked link
+            link.classList.add('active');
+
             if (navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
-                burger.classList.remove('toggle');
             }
         });
     });
 
-    // 2. Sticky Header Scroll Effect
-    const header = document.getElementById('main-header');
+    // 2. Navigation Active State Track on Scroll
+    const sections = document.querySelectorAll('section');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= (sectionTop - 200)) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        if (currentSection) {
+            navLinksArray.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
         }
     });
 
-    // 3. Showcase Grid Filter Logic
+    // 3. Showcase Grid Filter Logic (Blender scene outliner)
     const filterButtons = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.gallery-card');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to current button
             button.classList.add('active');
 
             const filterValue = button.getAttribute('data-filter');
@@ -45,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cards.forEach(card => {
                 const category = card.getAttribute('data-category');
                 
-                // Add fade out animation first
+                // Animating cards out and filtering
                 card.style.opacity = '0';
                 card.style.transform = 'scale(0.95)';
                 
@@ -59,14 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         card.classList.add('hide');
                     }
-                }, 300);
+                }, 250);
             });
         });
     });
 
-    // 4. Skills Bar Animation on Scroll/Intersection
+    // 4. Modifier Skill Value Bar Animation
     const skillsSection = document.getElementById('skills');
-    const progressBars = document.querySelectorAll('.skill-bar-fill');
+    const progressBars = document.querySelectorAll('.modifier-value-fill');
 
     const animateSkills = (entries, observer) => {
         entries.forEach(entry => {
@@ -75,22 +89,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     const widthVal = bar.getAttribute('data-width');
                     bar.style.width = widthVal;
                 });
-                // Once animated, we don't need to observe anymore
                 observer.unobserve(entry.target);
             }
         });
     };
 
     const skillsObserver = new IntersectionObserver(animateSkills, {
-        root: null, // Viewport
-        threshold: 0.15 // Trigger when 15% of section is visible
+        root: null,
+        threshold: 0.15
     });
 
     if (skillsSection) {
         skillsObserver.observe(skillsSection);
     }
 
-    // 5. Contact Form Submission
+    // 5. Render/Export Form submission handling
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
@@ -100,21 +113,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = submitBtn.textContent;
             
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Transmission Sending...';
-            submitBtn.style.background = 'var(--secondary)';
+            submitBtn.textContent = 'Initiating Export...';
+            submitBtn.style.background = '#444';
+            submitBtn.style.color = 'var(--orange-active)';
             
             setTimeout(() => {
-                submitBtn.textContent = 'Transmission Successful!';
-                submitBtn.style.background = '#4cd137';
-                submitBtn.style.boxShadow = '0 0 25px rgba(76, 209, 55, 0.4)';
+                submitBtn.textContent = 'Render Successfully Exported!';
+                submitBtn.style.background = '#2eb85c';
+                submitBtn.style.color = '#fff';
+                submitBtn.style.boxShadow = '0 0 15px rgba(46, 184, 92, 0.3)';
                 
                 contactForm.reset();
                 
                 setTimeout(() => {
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
-                    submitBtn.style.background = 'var(--primary)';
-                    submitBtn.style.boxShadow = '0 0 20px var(--primary-glow)';
+                    submitBtn.style.background = 'var(--orange-active)';
+                    submitBtn.style.color = 'var(--bg-darker)';
+                    submitBtn.style.boxShadow = 'none';
                 }, 3000);
             }, 1500);
         });

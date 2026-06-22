@@ -461,6 +461,84 @@ document.addEventListener('DOMContentLoaded', () => {
     render3D();
 
     // ==========================================
+    // 6.5. Dynamic Workflow Steps Image Switcher
+    // ==========================================
+    const workflowSteps = document.querySelectorAll('.workflow-step');
+    const workflowPreviewImg = document.getElementById('workflow-preview-img');
+    const workflowHeaderFilename = document.querySelector('.workflow-viewer-header');
+
+    const treeStepsImages = {
+        '1': 'gallery_assets/user_tree_1.png',
+        '2': 'gallery_assets/user_tree_2.png',
+        '3': 'gallery_assets/user_tree_3.png'
+    };
+
+    const treeStepFilenames = {
+        '1': 'tree_edit_mode_vertices.png',
+        '2': 'tree_selection_outline.png',
+        '3': 'tree_seasonal_variants.png'
+    };
+
+    let step3Interval = null;
+    let step3AltImage = false;
+
+    workflowSteps.forEach(step => {
+        step.addEventListener('click', () => {
+            // Clear active step classes
+            workflowSteps.forEach(s => s.classList.remove('active-step'));
+            // Add active step class to clicked step
+            step.classList.add('active-step');
+
+            const stepNum = step.getAttribute('data-step');
+            
+            // Handle image fade transition
+            if (workflowPreviewImg) {
+                workflowPreviewImg.style.opacity = '0.1';
+                
+                // Clear any running seasonal cycle interval
+                if (step3Interval) {
+                    clearInterval(step3Interval);
+                    step3Interval = null;
+                }
+
+                setTimeout(() => {
+                    if (stepNum === '3') {
+                        // Start cycling between green (3) and yellow (4) for step 3
+                        step3AltImage = false;
+                        workflowPreviewImg.src = 'gallery_assets/user_tree_3.png';
+                        if (workflowHeaderFilename) workflowHeaderFilename.textContent = 'tree_seasonal_variant_summer.png';
+                        
+                        step3Interval = setInterval(() => {
+                            workflowPreviewImg.style.opacity = '0.2';
+                            setTimeout(() => {
+                                step3AltImage = !step3AltImage;
+                                if (step3AltImage) {
+                                    workflowPreviewImg.src = 'gallery_assets/user_tree_4.png';
+                                    if (workflowHeaderFilename) workflowHeaderFilename.textContent = 'tree_seasonal_variant_autumn.png';
+                                } else {
+                                    workflowPreviewImg.src = 'gallery_assets/user_tree_3.png';
+                                    if (workflowHeaderFilename) workflowHeaderFilename.textContent = 'tree_seasonal_variant_summer.png';
+                                }
+                                workflowPreviewImg.style.opacity = '1';
+                            }, 150);
+                        }, 2500);
+
+                    } else {
+                        workflowPreviewImg.src = treeStepsImages[stepNum];
+                        if (workflowHeaderFilename) workflowHeaderFilename.textContent = treeStepFilenames[stepNum];
+                    }
+                    workflowPreviewImg.style.opacity = '1';
+                }, 150);
+            }
+        });
+    });
+
+    // Initialize filename for first active step on load
+    if (workflowHeaderFilename) {
+        workflowHeaderFilename.textContent = 'tree_edit_mode_vertices.png';
+    }
+
+    // ==========================================
     // 7. Form submission handling
     // ==========================================
     const contactForm = document.getElementById('contact-form');

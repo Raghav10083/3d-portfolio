@@ -239,6 +239,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
+    // 5.6. Image Carousel for Stylized Characters card
+    // ==========================================
+    const charImg = document.getElementById('char-img');
+    const charPrev = document.getElementById('btn-char-prev');
+    const charNext = document.getElementById('btn-char-next');
+    const charCounter = document.getElementById('char-counter');
+
+    const charImages = [
+        'gallery_assets/user_char_1.png',
+        'gallery_assets/user_char_2.png',
+        'gallery_assets/user_char_3.png',
+        'gallery_assets/user_char_4.png',
+        'gallery_assets/user_char_5.png'
+    ];
+    let currentCharIndex = 0;
+
+    function updateCharCarousel() {
+        if (charImg && charCounter) {
+            charImg.style.opacity = '0.3';
+            setTimeout(() => {
+                charImg.src = charImages[currentCharIndex];
+                charCounter.textContent = `${currentCharIndex + 1} / ${charImages.length}`;
+                charImg.style.opacity = '1';
+            }, 150);
+        }
+    }
+
+    if (charPrev) {
+        charPrev.addEventListener('click', (e) => {
+            e.stopPropagation(); // Avoid triggering selection highlight
+            currentCharIndex = (currentCharIndex - 1 + charImages.length) % charImages.length;
+            updateCharCarousel();
+        });
+    }
+
+    if (charNext) {
+        charNext.addEventListener('click', (e) => {
+            e.stopPropagation(); // Avoid triggering selection highlight
+            currentCharIndex = (currentCharIndex + 1) % charImages.length;
+            updateCharCarousel();
+        });
+    }
+
+    // ==========================================
     // 6. Interactive 3D Wireframe Canvas Engine
     // ==========================================
     const canvas = document.getElementById('viewport-canvas');

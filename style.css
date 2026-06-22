@@ -42,8 +42,8 @@ body {
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
 }
 ::-webkit-scrollbar-track {
     background: var(--bg-darker);
@@ -58,7 +58,7 @@ body {
 
 /* Base Layout Container */
 .container {
-    max-width: 1300px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
@@ -78,7 +78,7 @@ header {
     display: flex;
     align-items: center;
     background: #1e1e1e;
-    padding: 0.25rem 1rem;
+    padding: 0.3rem 1.5rem;
     font-family: var(--font-mono);
     font-size: 0.75rem;
     border-bottom: 1px solid var(--border-color);
@@ -87,7 +87,7 @@ header {
 .top-menu-item {
     color: var(--text-dark);
     margin-right: 1.2rem;
-    cursor: default;
+    user-select: none;
 }
 .top-menu-item span {
     color: var(--text-main);
@@ -96,30 +96,34 @@ header {
     color: var(--orange-active);
 }
 
+.container-nav {
+    padding: 0 1.5rem;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1.5rem;
+    padding: 0.4rem 0;
 }
 
 .logo {
     font-family: var(--font-ui);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--text-bright);
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 
 .logo span {
     background: var(--orange-active);
     color: var(--bg-darker);
-    padding: 0.1rem 0.4rem;
+    padding: 0.1rem 0.45rem;
     border-radius: 3px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .nav-links {
@@ -140,7 +144,7 @@ nav {
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 500;
-    padding: 0.4rem 1.2rem;
+    padding: 0.35rem 1.2rem;
     border-radius: 3px;
     transition: all 0.2s ease;
 }
@@ -170,6 +174,105 @@ nav {
     margin: 4px 0;
 }
 
+/* Dual Pane Workspace Layout */
+.workspace-layout {
+    display: flex;
+    margin-top: 75px; /* Offset for nav bars */
+    min-height: calc(100vh - 75px);
+    position: relative;
+}
+
+/* Scene Outliner Sidebar */
+.outliner-sidebar {
+    width: 240px;
+    background: var(--bg-darker);
+    border-right: 1px solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    position: sticky;
+    top: 75px;
+    height: calc(100vh - 75px);
+    overflow-y: auto;
+    z-index: 100;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    flex-shrink: 0;
+}
+
+.outliner-sidebar.closed {
+    width: 0;
+    opacity: 0;
+    border-right: none;
+    pointer-events: none;
+}
+
+.outliner-header {
+    padding: 0.6rem 1rem;
+    background: #1b1b1b;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-bright);
+    font-weight: bold;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.outliner-tree {
+    padding: 0.5rem 0;
+}
+
+.outliner-item {
+    padding: 0.25rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--text-main);
+    user-select: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.outliner-item:hover {
+    background: #2b2b2b;
+    color: var(--text-bright);
+}
+
+.outliner-item.active {
+    background: #3e3e3e;
+    color: var(--text-bright);
+    border-left: 2px solid var(--orange-active);
+}
+
+.outliner-sub-tree {
+    padding-left: 0.8rem;
+}
+
+.outliner-sub-sub-tree {
+    padding-left: 0.8rem;
+}
+
+.tree-arrow {
+    font-size: 0.55rem;
+    margin-right: 0.4rem;
+    color: var(--text-dark);
+}
+
+.tree-icon {
+    margin-right: 0.4rem;
+}
+
+/* Workspace Main Area */
+.workspace-main {
+    flex-grow: 1;
+    width: calc(100% - 240px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.outliner-sidebar.closed + .workspace-main {
+    width: 100%;
+}
+
 /* 3D Viewport Hero Section */
 .hero {
     position: relative;
@@ -179,11 +282,21 @@ nav {
     justify-content: center;
     overflow: hidden;
     border-bottom: 2px solid var(--border-color);
-    background-image: 
-        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-    background-size: 40px 40px;
-    background-position: center;
+    background-color: var(--bg-viewport);
+}
+
+/* Viewport Canvas */
+#viewport-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    cursor: grab;
+}
+#viewport-canvas:active {
+    cursor: grabbing;
 }
 
 /* Viewport Axis Lines */
@@ -198,7 +311,7 @@ nav {
     background: var(--axis-x);
     top: 50%;
     left: -50%;
-    opacity: 0.45;
+    opacity: 0.35;
 }
 .axis-y {
     height: 200%;
@@ -206,35 +319,7 @@ nav {
     background: var(--axis-y);
     left: 50%;
     top: -50%;
-    opacity: 0.45;
-}
-
-/* 3D Wireframe Primitives */
-.wireframe-mesh {
-    position: absolute;
-    color: var(--text-dark);
-    opacity: 0.2;
-    pointer-events: none;
-    z-index: 1;
-}
-.mesh-cube {
-    width: 300px;
-    height: 300px;
-    border: 1px dashed var(--orange-active);
-    transform: perspective(600px) rotateX(45deg) rotateY(45deg);
-    animation: rotate3D 25s infinite linear;
-}
-.mesh-cube::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    border: 1px dashed var(--orange-active);
-    transform: translateZ(100px);
-}
-
-@keyframes rotate3D {
-    0% { transform: perspective(600px) rotateX(25deg) rotateY(0deg) rotateZ(0deg); }
-    100% { transform: perspective(600px) rotateX(25deg) rotateY(360deg) rotateZ(360deg); }
+    opacity: 0.35;
 }
 
 .hero-content {
@@ -245,7 +330,17 @@ nav {
     padding: 3rem;
     border-radius: 6px;
     max-width: 700px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 45px rgba(0,0,0,0.6);
+    pointer-events: none; /* Let clicks pass through to interactive canvas */
+}
+
+/* Enable pointer events specifically on title buttons/content details */
+.hero-content h1, 
+.hero-content p, 
+.hero-content .viewport-info-tag, 
+.hero-content .btn-container,
+.hero-content .viewport-controls-help {
+    pointer-events: auto;
 }
 
 .viewport-info-tag {
@@ -258,6 +353,18 @@ nav {
     border-radius: 3px;
     display: inline-block;
     margin-bottom: 1.5rem;
+}
+
+.viewport-controls-help {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-dark);
+    margin-top: 1.5rem;
+    background: rgba(0,0,0,0.4);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    display: inline-block;
+    user-select: none;
 }
 
 .hero-title {
@@ -388,7 +495,7 @@ section {
 /* Properties Inspector Gallery */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 2rem;
 }
 
@@ -405,6 +512,11 @@ section {
 .gallery-card:hover {
     border-color: var(--orange-active);
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.gallery-card.active-target {
+    border-color: var(--orange-active);
+    box-shadow: 0 0 15px var(--orange-glow);
 }
 
 /* Inspector Panel Header */
@@ -441,12 +553,17 @@ section {
     height: 100%;
     object-fit: cover;
     opacity: 0.85;
-    transition: opacity 0.3s ease, transform 0.4s ease;
+    transition: transform 0.4s ease;
 }
 
 .gallery-card:hover .card-img-container img {
     opacity: 1;
-    transform: scale(1.03);
+}
+
+/* Transform target wrapper */
+.transform-target {
+    transform-origin: center center;
+    transition: transform 0.3s cubic-bezier(0.1, 0.8, 0.2, 1);
 }
 
 .card-info {
@@ -504,22 +621,54 @@ section {
     border-radius: 2px;
     overflow: hidden;
     border: 1px solid var(--border-color);
+    align-items: center;
 }
 
 .transform-label {
-    padding: 0.15rem 0.3rem;
+    padding: 0.15rem 0.35rem;
     font-weight: bold;
     color: var(--bg-darker);
+    font-size: 0.65rem;
+    user-select: none;
 }
 .label-x { background: var(--axis-x); }
 .label-y { background: var(--axis-y); }
 .label-z { background: var(--axis-z); }
 
+/* Interactive transform numbers */
+.transform-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-bright);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    text-align: right;
+}
+
+.transform-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--orange-active);
+}
+
+/* Hide spin buttons */
+.transform-input::-webkit-outer-spin-button,
+.transform-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.transform-input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .transform-val {
     padding: 0.15rem 0.4rem;
-    color: var(--text-main);
+    color: var(--text-dark);
     text-align: right;
     width: 100%;
+    user-select: none;
 }
 
 .card-meta {
@@ -873,7 +1022,29 @@ footer {
     color: var(--orange-active);
 }
 
-/* Mobile Menu Layout */
+/* Mobile Layouts */
+@media (max-width: 900px) {
+    .workspace-layout {
+        flex-direction: column;
+    }
+    .outliner-sidebar {
+        width: 100%;
+        height: auto;
+        max-height: 200px;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .workspace-main {
+        width: 100%;
+    }
+    .outliner-sidebar.closed {
+        height: 0;
+        padding: 0;
+        border-bottom: none;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;

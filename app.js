@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const opacity = Math.max(0.08, Math.min(1.0 - (averageDepth + sphereRadius) / (sphereRadius * 2.5), 0.75));
             
             // Highlight color for active viewport grid
-            ctx.strokeStyle = `rgba(232, 123, 53, ${opacity})`;
+            ctx.strokeStyle = `rgba(0, 188, 212, ${opacity})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
         });
@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Draw small vertices nodes
         projectedPoints.forEach(p => {
             if (p.z < 20) { // Render nodes closer to camera
-                ctx.fillStyle = '#e87b35';
+                ctx.fillStyle = '#00bcd4';
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, 1.8, 0, 2 * Math.PI);
                 ctx.fill();

@@ -1,28 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
 :root {
-    --bg-darker: #151515;       /* Blender outer window bg */
-    --bg-viewport: #222222;     /* Blender viewport bg */
-    --panel-bg: #2b2b2b;        /* Blender panel headers & cards */
-    --panel-header: #353535;    /* Properties header */
-    --border-color: #1a1a1a;
-    --border-highlight: #444444;
+    --bg-darker: #0c0d0e;       /* Unreal Engine editor main background (borders/tabs) */
+    --bg-viewport: #121314;     /* Viewport slate backdrop */
+    --panel-bg: #1a1b1c;        /* UE5 details panels / cards */
+    --panel-header: #232527;    /* UE5 header tab bar style */
+    --border-color: #2b2d30;    /* Sleek UI panel outline */
+    --border-highlight: #3a3d42;
     
-    --orange-active: #e87b35;   /* Active selection orange */
-    --orange-glow: rgba(232, 123, 53, 0.2);
+    --ue5-amber: #e08214;       /* UE5 Active Gold Selection */
+    --ue5-amber-glow: rgba(224, 130, 20, 0.15);
+    
+    --orange-active: var(--ue5-amber);
+    --orange-glow: var(--ue5-amber-glow);
     
     --axis-x: #e83e35;          /* X Axis - Red */
     --axis-y: #2eb85c;          /* Y Axis - Green */
     --axis-z: #2d82e8;          /* Z Axis - Blue */
     
-    --text-main: #cfcfcf;       /* Standard Blender text */
-    --text-bright: #ffffff;
-    --text-dark: #8c8c8c;       /* Muted values */
+    --text-main: #c4c5c6;       /* UE5 standard text */
+    --text-bright: #f0f1f2;
+    --text-dark: #7c7e80;       /* UE5 dark labels */
     
     --font-ui: 'Space Grotesk', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     
-    --grid-line: #2d2d2d;
+    --grid-line: #222325;
 }
 
 * {
@@ -128,9 +131,9 @@ nav {
 
 .nav-links {
     display: flex;
-    background: #181818;
-    border-radius: 4px;
-    padding: 2px;
+    background: var(--bg-darker);
+    border-radius: 2px;
+    padding: 1px;
     border: 1px solid var(--border-color);
 }
 
@@ -145,7 +148,7 @@ nav {
     font-size: 0.8rem;
     font-weight: 500;
     padding: 0.35rem 1.2rem;
-    border-radius: 3px;
+    border-radius: 2px;
     transition: all 0.2s ease;
 }
 
@@ -156,8 +159,10 @@ nav {
 
 .nav-links a.active {
     color: var(--text-bright);
-    background: #3d3d3d;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.4);
+    background: var(--panel-header);
+    border-top: 2px solid var(--ue5-amber);
+    border-radius: 2px 2px 0 0;
+    box-shadow: none;
 }
 
 .burger {
@@ -239,17 +244,21 @@ nav {
 }
 
 .outliner-item.active {
-    background: #3e3e3e;
+    background: var(--border-highlight);
     color: var(--text-bright);
-    border-left: 2px solid var(--orange-active);
+    border-left: 2px solid var(--ue5-amber);
 }
 
 .outliner-sub-tree {
-    padding-left: 0.8rem;
+    padding-left: 1rem;
+    border-left: 1px dashed rgba(255, 255, 255, 0.05);
+    margin-left: 0.5rem;
 }
 
 .outliner-sub-sub-tree {
-    padding-left: 0.8rem;
+    padding-left: 1rem;
+    border-left: 1px dashed rgba(255, 255, 255, 0.05);
+    margin-left: 0.5rem;
 }
 
 .tree-arrow {

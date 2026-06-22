@@ -9,27 +9,30 @@
 </head>
 <body>
 
-    <!-- Blender Style Header Nav -->
+    <!-- Unreal Style Header Nav -->
     <header id="main-header">
         <div class="top-bar-menu">
             <div class="top-menu-item">File</div>
             <div class="top-menu-item">Edit</div>
-            <div class="top-menu-item">Render</div>
             <div class="top-menu-item">Window</div>
+            <div class="top-menu-item">Tools</div>
+            <div class="top-menu-item">Build</div>
+            <div class="top-menu-item">Select</div>
+            <div class="top-menu-item">Actor</div>
             <div class="top-menu-item">Help</div>
-            <div class="top-menu-item toggle-sidebar-btn" id="toggle-outliner-btn" style="margin-left: 2rem; color: var(--orange-active); cursor: pointer;">[Toggle Outliner]</div>
-            <div class="top-menu-item" style="margin-left: auto; color: var(--text-dark);">v3.5.0</div>
+            <div class="top-menu-item toggle-sidebar-btn" id="toggle-outliner-btn" style="margin-left: 2rem; color: var(--ue5-amber); cursor: pointer;">[Toggle Outliner]</div>
+            <div class="top-menu-item" style="margin-left: auto; color: var(--text-dark);">Unreal Editor v5.1.0</div>
         </div>
         <div class="container-nav">
             <nav>
                 <a href="#" class="logo">
-                    <span>3D</span> RAGHAV
+                    <span>UE5</span> RAGHAV
                 </a>
                 <ul class="nav-links">
-                    <li><a href="#hero" class="active">Layout</a></li>
-                    <li><a href="#gallery">Modeling</a></li>
-                    <li><a href="#skills">Shading</a></li>
-                    <li><a href="#contact">Rendering</a></li>
+                    <li><a href="#hero" class="active">Viewport</a></li>
+                    <li><a href="#gallery">Blueprints</a></li>
+                    <li><a href="#skills">Details</a></li>
+                    <li><a href="#contact">Package</a></li>
                 </ul>
                 <button class="burger" aria-label="Toggle navigation menu">
                     <span></span>
@@ -43,38 +46,38 @@
     <!-- Main Workspace Layout (Sidebar Left, Content Right) -->
     <div class="workspace-layout">
         
-        <!-- Scene Outliner Sidebar -->
+        <!-- World Outliner Sidebar -->
         <aside class="outliner-sidebar" id="scene-outliner">
             <div class="outliner-header">
-                <span>Scene Collection</span>
+                <span>Outliner</span>
             </div>
             <div class="outliner-tree">
                 <div class="outliner-item collapsable">
-                    <span class="tree-arrow">▼</span> 📁 Scene
+                    <span class="tree-arrow">▼</span> 🗺️ World (L_Clearing_Map)
                 </div>
                 <div class="outliner-sub-tree">
                     <div class="outliner-item" data-target="hero">
-                        <span class="tree-icon">🎬</span> Camera_Viewport
+                        <span class="tree-icon">🎬</span> Camera_Actor_1
                     </div>
                     <div class="outliner-item collapsable">
-                        <span class="tree-arrow">▼</span> 📁 Collection_Featured
+                        <span class="tree-arrow">▼</span> 📁 Featured_Blueprints
                     </div>
                     <div class="outliner-sub-sub-tree">
                         <div class="outliner-item" data-target="gallery" data-item="island">
-                            <span class="tree-icon">◆</span> Forest_Clearing.obj
+                            <span class="tree-icon">◆</span> BP_Forest_Clearing
                         </div>
                         <div class="outliner-item" data-target="gallery" data-item="chest">
-                            <span class="tree-icon">◆</span> Game_Characters.fbx
+                            <span class="tree-icon">◆</span> BP_Game_Characters
                         </div>
                         <div class="outliner-item" data-target="gallery" data-item="dungeon">
-                            <span class="tree-icon">◆</span> Jade_Oni_Mask.fbx
+                            <span class="tree-icon">◆</span> BP_Jade_Oni_Mask
                         </div>
                     </div>
                     <div class="outliner-item" data-target="skills">
-                        <span class="tree-icon">🔧</span> Modifier_Stack
+                        <span class="tree-icon">🔧</span> Details_Components
                     </div>
                     <div class="outliner-item" data-target="contact">
-                        <span class="tree-icon">📤</span> Render_Output
+                        <span class="tree-icon">📤</span> Package_Project
                     </div>
                 </div>
             </div>
@@ -93,17 +96,17 @@
                 <div class="viewport-axis axis-y"></div>
 
                 <div class="hero-content">
-                    <span class="viewport-info-tag">User Perspective | Interactive 3D Orbit</span>
+                    <span class="viewport-info-tag">Perspective | Lit | Show | Game View (120 FPS)</span>
                     <h1 class="hero-title">Raghav <span>//</span> 3D Artist</h1>
                     <p class="hero-subtitle">
                         Designing <span>Low-Poly Meshes</span> in Blender, mapping custom textures in <span>Substance Painter</span>, and constructing real-time environments in <span>Unreal Engine</span>.
                     </p>
                     <div class="btn-container">
-                        <a href="#gallery" class="btn btn-primary">Enter Viewport</a>
-                        <a href="#contact" class="btn btn-secondary">Export Contact</a>
+                        <a href="#gallery" class="btn btn-primary">Open Details</a>
+                        <a href="#contact" class="btn btn-secondary">Package Output</a>
                     </div>
                     <div class="viewport-controls-help">
-                        [Left-Click + Drag to Orbit] [Scroll to Zoom]
+                        [Left-Click + Drag to Orbit] [Scroll to Zoom Viewport]
                     </div>
                 </div>
             </section>
@@ -112,16 +115,16 @@
             <section id="gallery">
                 <div class="container">
                     <div class="section-header">
-                        <span class="section-tag">Collections</span>
-                        <h2 class="section-title">Scene Hierarchy</h2>
+                        <span class="section-tag">Details Panel</span>
+                        <h2 class="section-title">Blueprint Renders</h2>
                     </div>
 
                     <!-- Filters -->
                     <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all">All Objects</button>
+                        <button class="filter-btn active" data-filter="all">All Actors</button>
                         <button class="filter-btn" data-filter="lowpoly">Low-Poly</button>
-                        <button class="filter-btn" data-filter="substance">Texturing</button>
-                        <button class="filter-btn" data-filter="unreal">Environments</button>
+                        <button class="filter-btn" data-filter="substance">Material Instances</button>
+                        <button class="filter-btn" data-filter="unreal">Levels</button>
                     </div>
 
                     <!-- Grid of Property Inspect Panels -->
@@ -130,7 +133,7 @@
                         <!-- Forest Clearing Card -->
                         <div class="gallery-card" data-category="lowpoly" id="card-island">
                             <div class="card-header-tab">
-                                <span><span class="object-icon">◆</span>Forest_Clearing.obj</span>
+                                <span><span class="object-icon">◆</span>BP_Forest_Clearing.uasset</span>
                                 <span class="visibility-icon">👁</span>
                             </div>
                             <div class="card-img-container">
@@ -190,7 +193,7 @@
                         <!-- Game Characters Card -->
                         <div class="gallery-card" data-category="lowpoly" id="card-chest">
                             <div class="card-header-tab">
-                                <span><span class="object-icon">◆</span>Game_Characters.fbx</span>
+                                <span><span class="object-icon">◆</span>BP_Game_Characters.uasset</span>
                                 <span class="visibility-icon">👁</span>
                             </div>
                             <div class="card-img-container">
@@ -250,7 +253,7 @@
                         <!-- Jade Oni Mask Card -->
                         <div class="gallery-card" data-category="substance" id="card-dungeon">
                             <div class="card-header-tab">
-                                <span><span class="object-icon">◆</span>Jade_Oni_Mask.fbx</span>
+                                <span><span class="object-icon">◆</span>BP_Jade_Oni_Mask.uasset</span>
                                 <span class="visibility-icon">👁</span>
                             </div>
                             <div class="card-img-container">
@@ -315,8 +318,8 @@
                     <!-- Active Modifier Stack -->
                     <div class="modifiers-section" style="margin-bottom: 5rem;">
                         <div class="section-header" style="text-align: left; margin-bottom: 2.5rem;">
-                            <span class="section-tag">Modifiers</span>
-                            <h2 class="section-title">Active Modifier Stack</h2>
+                            <span class="section-tag">Details Panel</span>
+                            <h2 class="section-title">Actor Component Stack</h2>
                         </div>
                         
                         <div class="skills-grid">
@@ -324,7 +327,7 @@
                             <!-- Blender Skill -->
                             <div class="modifier-panel">
                                 <div class="modifier-header">
-                                    <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Blender_Modeler</span>
+                                    <span class="modifier-title"><span class="modifier-icon">🔧</span>Component: BlenderMeshModeler</span>
                                     <span class="visibility-icon">👁</span>
                                 </div>
                                 <div class="modifier-body">
@@ -341,7 +344,7 @@
                             <!-- Substance Skill -->
                             <div class="modifier-panel">
                                 <div class="modifier-header">
-                                    <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Substance_Shader</span>
+                                    <span class="modifier-title"><span class="modifier-icon">🔧</span>Component: SubstanceTexturer</span>
                                     <span class="visibility-icon">👁</span>
                                 </div>
                                 <div class="modifier-body">
@@ -358,12 +361,12 @@
                             <!-- Unreal Skill -->
                             <div class="modifier-panel">
                                 <div class="modifier-header">
-                                    <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Unreal_Level_Art</span>
+                                    <span class="modifier-title"><span class="modifier-icon">🔧</span>Component: UnrealEnvironmentArt</span>
                                     <span class="visibility-icon">👁</span>
                                 </div>
                                 <div class="modifier-body">
                                     <div class="modifier-property-row">
-                                        <span class="modifier-property-label">Environment Design:</span>
+                                        <span class="modifier-property-label">Level Art & Lighting:</span>
                                         <div class="modifier-value-bar-container">
                                             <div class="modifier-value-fill" data-width="65%"></div>
                                             <span class="modifier-value-percent">6.5 / 10</span>
@@ -378,8 +381,8 @@
                     <!-- Creation Workflow -->
                     <div class="workflow-section">
                         <div class="section-header" style="text-align: left; margin-bottom: 2.5rem;">
-                            <span class="section-tag">Outliner</span>
-                            <h2 class="section-title">Creation Workflow</h2>
+                            <span class="section-tag">Sequencer</span>
+                            <h2 class="section-title">Asset Production Pipeline</h2>
                         </div>
                         
                         <div class="workflow-layout-split">
@@ -420,10 +423,10 @@
                         
                         <!-- Contact Info -->
                         <div class="contact-info">
-                            <span class="section-tag">Render Properties</span>
-                            <h2 class="contact-title">Export Dialogue</h2>
+                            <span class="section-tag">Project Settings</span>
+                            <h2 class="contact-title">Project Packager</h2>
                             <p class="contact-desc">
-                                Need game assets modeled, textures painted, or level art configured? Set your variables and request a render below.
+                                Ready to package a contract? Set your parameters and initiate compilation to establish a connection.
                             </p>
 
                             <div class="contact-details">
@@ -463,21 +466,21 @@
 
                         <!-- Export Dialogue Settings Panel -->
                         <div class="contact-form-panel">
-                            <div class="form-header-tab">export_scene.fbx</div>
+                            <div class="form-header-tab">package_settings.ini</div>
                             <form id="contact-form" class="form-body">
                                 <div class="form-group">
-                                    <label class="form-label" for="name">Sender Name</label>
-                                    <input class="form-input" type="text" id="name" required placeholder="User_Name">
+                                    <label class="form-label" for="name">Sender Identifier</label>
+                                    <input class="form-input" type="text" id="name" required placeholder="Client_Identifier">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="email">Reply Target Address</label>
-                                    <input class="form-input" type="email" id="email" required placeholder="user@target.com">
+                                    <label class="form-label" for="email">Destination Callback Address</label>
+                                    <input class="form-input" type="email" id="email" required placeholder="name@domain.com">
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="message">Transmission Message</label>
-                                    <textarea class="form-input" id="message" required placeholder="Outline project deliverables, timeline, polygon count, etc..."></textarea>
+                                    <label class="form-label" for="message">Blueprint Request Parameters</label>
+                                    <textarea class="form-input" id="message" required placeholder="Detail asset deliverables, target engine versions, polygon budgets, and timelines..."></textarea>
                                 </div>
-                                <button type="submit" class="submit-btn">Execute Export</button>
+                                <button type="submit" class="submit-btn">Compile & Package Project</button>
                             </form>
                         </div>
 

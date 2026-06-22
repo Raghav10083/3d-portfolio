@@ -543,6 +543,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         workflowPreviewImg.src = treeStepsImages[stepNum];
                         if (workflowHeaderFilename) workflowHeaderFilename.textContent = treeStepFilenames[stepNum];
                     }
+                    
+                    // Apply zoom-out transform for steps 2 and 3
+                    if (stepNum === '2' || stepNum === '3') {
+                        workflowPreviewImg.style.transform = 'scale(0.75)';
+                    } else {
+                        workflowPreviewImg.style.transform = 'scale(1.0)';
+                    }
+                    
                     workflowPreviewImg.style.opacity = '1';
                 }, 150);
             }

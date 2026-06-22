@@ -1197,7 +1197,8 @@ footer {
     max-height: 100%;
     object-fit: contain;
     border-radius: 3px;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.3s ease;
+    transform: scale(1.0);
 }
 
 /* Blender-style Property Sliders */

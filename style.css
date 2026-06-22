@@ -709,8 +709,8 @@ section {
 }
 
 .skills-grid {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
 }
 
@@ -794,6 +794,7 @@ section {
 
 /* Workflow Outliner Stack */
 .workflow-timeline {
+    flex: 1;
     border-left: 2px solid var(--border-highlight);
     padding-left: 1.5rem;
     margin-left: 0.5rem;
@@ -801,21 +802,43 @@ section {
 
 .workflow-step {
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
 }
+
 .workflow-step:last-child {
     margin-bottom: 0;
+}
+
+.workflow-step:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.workflow-step.active-step {
+    background: rgba(232, 123, 53, 0.04);
+    border-color: rgba(232, 123, 53, 0.2);
+    border-left: 3px solid var(--orange-active);
+}
+
+.workflow-step.active-step h3 {
+    color: var(--orange-active);
 }
 
 .workflow-dot {
     position: absolute;
     left: calc(-1.5rem - 6px);
-    top: 4px;
+    top: 14px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background: var(--bg-viewport);
     border: 2px solid var(--orange-active);
+    z-index: 5;
 }
 
 .workflow-step h3 {
@@ -1120,8 +1143,8 @@ footer {
 /* Workflow Split Layout */
 .workflow-layout-split {
     display: flex;
-    gap: 2rem;
-    align-items: center;
+    gap: 3rem;
+    align-items: stretch;
     margin-top: 1rem;
 }
 
@@ -1129,44 +1152,12 @@ footer {
     .workflow-layout-split {
         flex-direction: column;
         align-items: stretch;
+        gap: 2rem;
     }
 }
 
-.workflow-timeline {
-    flex: 1.2;
-}
-
-.workflow-step {
-    position: relative;
-    margin-bottom: 1.5rem;
-    cursor: pointer;
-    padding: 0.8rem 1rem;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    transition: all 0.2s ease;
-}
-
-.workflow-step:last-child {
-    margin-bottom: 0;
-}
-
-.workflow-step:hover {
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(255, 255, 255, 0.05);
-}
-
-.workflow-step.active-step {
-    background: rgba(232, 123, 53, 0.04);
-    border-color: rgba(232, 123, 53, 0.2);
-    border-left: 3px solid var(--orange-active);
-}
-
-.workflow-step.active-step h3 {
-    color: var(--orange-active);
-}
-
 .workflow-viewer-panel {
-    flex: 0.8;
+    flex: 1.5;
     background: var(--bg-darker);
     border: 1px solid var(--border-color);
     border-radius: 4px;
@@ -1187,8 +1178,8 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #1e1e1e;
-    height: 250px;
+    background: #181818;
+    height: 400px;
     overflow: hidden;
 }
 
@@ -1198,4 +1189,80 @@ footer {
     object-fit: contain;
     border-radius: 3px;
     transition: opacity 0.25s ease;
+}
+
+/* Blender-style Property Sliders */
+.slider-container {
+    margin-bottom: 0.8rem;
+}
+.slider-container:last-child {
+    margin-bottom: 0;
+}
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-main);
+    margin-bottom: 0.2rem;
+    user-select: none;
+}
+.slider-label-name {
+    color: var(--text-dark);
+}
+.slider-label-value {
+    color: var(--orange-active);
+    font-weight: bold;
+}
+
+.slider-input-wrapper {
+    width: 100%;
+    height: 18px;
+    background: var(--bg-darker);
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.transform-slider-input {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.transform-slider-input::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.transform-slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 100%;
+    width: 6px;
+    background: var(--orange-active);
+    border-radius: 1px;
+    cursor: pointer;
+    box-shadow: -407px 0 0 400px rgba(232, 123, 53, 0.15); /* Blender-style fill on the left! */
+}
+
+.transform-slider-input::-moz-range-thumb {
+    height: 100%;
+    width: 6px;
+    background: var(--orange-active);
+    border-radius: 1px;
+    cursor: pointer;
+    border: none;
+}
+
+.transform-slider-input::-moz-range-progress {
+    background-color: rgba(232, 123, 53, 0.15);
+    height: 100%;
 }

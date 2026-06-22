@@ -174,24 +174,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // 5. Real-Time Transform Modification
     // ==========================================
-    const transformInputs = document.querySelectorAll('.transform-input');
+    const transformSliders = document.querySelectorAll('.transform-slider-input');
 
-    transformInputs.forEach(input => {
-        input.addEventListener('input', () => {
-            const card = input.closest('.gallery-card');
+    transformSliders.forEach(slider => {
+        slider.addEventListener('input', () => {
+            const card = slider.closest('.gallery-card');
             const targetImg = card.querySelector('.transform-target');
             
             // Gather all transform properties for this card
-            const rotateXInput = card.querySelector('[data-transform="rotateX"]');
-            const rotateYInput = card.querySelector('[data-transform="rotateY"]');
-            const scaleInput = card.querySelector('[data-transform="scale"]');
+            const rotateXSlider = card.querySelector('[data-transform="rotateX"]');
+            const rotateYSlider = card.querySelector('[data-transform="rotateY"]');
+            const scaleSlider = card.querySelector('[data-transform="scale"]');
             
-            const rX = rotateXInput ? rotateXInput.value || 0 : 0;
-            const rY = rotateYInput ? rotateYInput.value || 0 : 0;
-            const sc = scaleInput ? scaleInput.value || 1.0 : 1.0;
+            const rX = rotateXSlider ? rotateXSlider.value || 0 : 0;
+            const rY = rotateYSlider ? rotateYSlider.value || 0 : 0;
+            const sc = scaleSlider ? scaleSlider.value || 1.0 : 1.0;
             
+            // Update label indicators
+            const cardId = card.getAttribute('id');
+            let prefix = '';
+            if (cardId === 'card-island') prefix = 'island';
+            if (cardId === 'card-chest') prefix = 'chest';
+            if (cardId === 'card-dungeon') prefix = 'dungeon';
+
+            const valX = document.getElementById(`val-${prefix}-x`);
+            const valY = document.getElementById(`val-${prefix}-y`);
+            const valScale = document.getElementById(`val-${prefix}-scale`);
+
+            if (valX) valX.textContent = `${rX}°`;
+            if (valY) valY.textContent = `${rY}°`;
+            if (valScale) valScale.textContent = `${parseFloat(sc).toFixed(2)}x`;
+
             // Apply 3D transform to card image
             targetImg.style.transform = `perspective(500px) rotateX(${rX}deg) rotateY(${rY}deg) scale(${sc})`;
+        });
     });
 
     // ==========================================

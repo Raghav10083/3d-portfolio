@@ -145,19 +145,32 @@
                                 
                                 <!-- Interactive Blender style transform box -->
                                 <div class="transform-fields-panel">
-                                    <div class="transform-title">Mesh Transform (Adjust coordinates to modify model)</div>
-                                    <div class="transform-row">
-                                        <div class="transform-col">
-                                            <span class="transform-label label-x">X_Rot</span>
-                                            <input type="number" class="transform-input" data-transform="rotateX" value="0" step="5">
+                                    <div class="transform-title">Mesh Transform</div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation X</span>
+                                            <span class="slider-label-value" id="val-island-x">0°</span>
                                         </div>
-                                        <div class="transform-col">
-                                            <span class="transform-label label-y">Y_Rot</span>
-                                            <input type="number" class="transform-input" data-transform="rotateY" value="0" step="5">
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateX" min="-180" max="180" value="0">
                                         </div>
-                                        <div class="transform-col">
-                                            <span class="transform-label label-z">Scale</span>
-                                            <input type="number" class="transform-input" data-transform="scale" value="1.0" step="0.1" min="0.5" max="1.5">
+                                    </div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation Y</span>
+                                            <span class="slider-label-value" id="val-island-y">0°</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateY" min="-180" max="180" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="slider-container" style="margin-bottom: 0.8rem;">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Scale</span>
+                                            <span class="slider-label-value" id="val-island-scale">1.00x</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="scale" min="0.5" max="1.5" step="0.05" value="1.0">
                                         </div>
                                     </div>
                                     <div class="transform-row">
@@ -192,19 +205,32 @@
                                 
                                 <!-- Interactive Blender style transform box -->
                                 <div class="transform-fields-panel">
-                                    <div class="transform-title">Mesh Transform (Adjust coordinates to modify model)</div>
-                                    <div class="transform-row">
-                                        <div class="transform-col">
-                                            <span class="transform-label label-x">X_Rot</span>
-                                            <input type="number" class="transform-input" data-transform="rotateX" value="0" step="5">
+                                    <div class="transform-title">Mesh Transform</div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation X</span>
+                                            <span class="slider-label-value" id="val-chest-x">0°</span>
                                         </div>
-                                        <div class="transform-col">
-                                            <span class="transform-label label-y">Y_Rot</span>
-                                            <input type="number" class="transform-input" data-transform="rotateY" value="0" step="5">
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateX" min="-180" max="180" value="0">
                                         </div>
-                                        <div class="transform-col">
-                                            <span class="transform-label label-z">Scale</span>
-                                            <input type="number" class="transform-input" data-transform="scale" value="1.0" step="0.1" min="0.5" max="1.5">
+                                    </div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation Y</span>
+                                            <span class="slider-label-value" id="val-chest-y">0°</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateY" min="-180" max="180" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="slider-container" style="margin-bottom: 0.8rem;">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Scale</span>
+                                            <span class="slider-label-value" id="val-chest-scale">1.00x</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="scale" min="0.5" max="1.5" step="0.05" value="1.0">
                                         </div>
                                     </div>
                                     <div class="transform-row">
@@ -236,19 +262,32 @@
                                 
                                 <!-- Interactive Blender style transform box -->
                                 <div class="transform-fields-panel">
-                                    <div class="transform-title">Mesh Transform (Adjust coordinates to modify model)</div>
-                                    <div class="transform-row">
-                                        <div class="transform-col">
-                                            <span class="transform-label label-x">X_Rot</span>
-                                            <input type="number" class="transform-input" data-transform="rotateX" value="0" step="5">
+                                    <div class="transform-title">Mesh Transform</div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation X</span>
+                                            <span class="slider-label-value" id="val-dungeon-x">0°</span>
                                         </div>
-                                        <div class="transform-col">
-                                            <span class="transform-label label-y">Y_Rot</span>
-                                            <input type="number" class="transform-input" data-transform="rotateY" value="0" step="5">
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateX" min="-180" max="180" value="0">
                                         </div>
-                                        <div class="transform-col">
-                                            <span class="transform-label label-z">Scale</span>
-                                            <input type="number" class="transform-input" data-transform="scale" value="1.0" step="0.1" min="0.5" max="1.5">
+                                    </div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation Y</span>
+                                            <span class="slider-label-value" id="val-dungeon-y">0°</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateY" min="-180" max="180" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="slider-container" style="margin-bottom: 0.8rem;">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Scale</span>
+                                            <span class="slider-label-value" id="val-dungeon-scale">1.00x</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="scale" min="0.5" max="1.5" step="0.05" value="1.0">
                                         </div>
                                     </div>
                                     <div class="transform-row">
@@ -272,107 +311,105 @@
             <!-- Skills (Shading Tab) -->
             <section id="skills">
                 <div class="container">
-                    <div class="skills-container">
+                    
+                    <!-- Active Modifier Stack -->
+                    <div class="modifiers-section" style="margin-bottom: 5rem;">
+                        <div class="section-header" style="text-align: left; margin-bottom: 2.5rem;">
+                            <span class="section-tag">Modifiers</span>
+                            <h2 class="section-title">Active Modifier Stack</h2>
+                        </div>
                         
-                        <!-- Skill Modifiers Stack -->
-                        <div>
-                            <div class="section-header" style="text-align: left; margin-bottom: 2.5rem;">
-                                <span class="section-tag">Modifiers</span>
-                                <h2 class="section-title">Active Modifier Stack</h2>
-                            </div>
+                        <div class="skills-grid">
                             
-                            <div class="skills-grid">
-                                
-                                <!-- Blender Skill -->
-                                <div class="modifier-panel">
-                                    <div class="modifier-header">
-                                        <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Blender_Modeler</span>
-                                        <span class="visibility-icon">👁</span>
-                                    </div>
-                                    <div class="modifier-body">
-                                        <div class="modifier-property-row">
-                                            <span class="modifier-property-label">Low-Poly Modeling:</span>
-                                            <div class="modifier-value-bar-container">
-                                                <div class="modifier-value-fill" data-width="85%"></div>
-                                                <span class="modifier-value-percent">8.5 / 10</span>
-                                            </div>
+                            <!-- Blender Skill -->
+                            <div class="modifier-panel">
+                                <div class="modifier-header">
+                                    <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Blender_Modeler</span>
+                                    <span class="visibility-icon">👁</span>
+                                </div>
+                                <div class="modifier-body">
+                                    <div class="modifier-property-row">
+                                        <span class="modifier-property-label">Low-Poly Modeling:</span>
+                                        <div class="modifier-value-bar-container">
+                                            <div class="modifier-value-fill" data-width="85%"></div>
+                                            <span class="modifier-value-percent">8.5 / 10</span>
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- Substance Skill -->
-                                <div class="modifier-panel">
-                                    <div class="modifier-header">
-                                        <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Substance_Shader</span>
-                                        <span class="visibility-icon">👁</span>
-                                    </div>
-                                    <div class="modifier-body">
-                                        <div class="modifier-property-row">
-                                            <span class="modifier-property-label">PBR Texturing:</span>
-                                            <div class="modifier-value-bar-container">
-                                                <div class="modifier-value-fill" data-width="70%"></div>
-                                                <span class="modifier-value-percent">7.0 / 10</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Unreal Skill -->
-                                <div class="modifier-panel">
-                                    <div class="modifier-header">
-                                        <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Unreal_Level_Art</span>
-                                        <span class="visibility-icon">👁</span>
-                                    </div>
-                                    <div class="modifier-body">
-                                        <div class="modifier-property-row">
-                                            <span class="modifier-property-label">Environment Design:</span>
-                                            <div class="modifier-value-bar-container">
-                                                <div class="modifier-value-fill" data-width="65%"></div>
-                                                <span class="modifier-value-percent">6.5 / 10</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
+
+                            <!-- Substance Skill -->
+                            <div class="modifier-panel">
+                                <div class="modifier-header">
+                                    <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Substance_Shader</span>
+                                    <span class="visibility-icon">👁</span>
+                                </div>
+                                <div class="modifier-body">
+                                    <div class="modifier-property-row">
+                                        <span class="modifier-property-label">PBR Texturing:</span>
+                                        <div class="modifier-value-bar-container">
+                                            <div class="modifier-value-fill" data-width="70%"></div>
+                                            <span class="modifier-value-percent">7.0 / 10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Unreal Skill -->
+                            <div class="modifier-panel">
+                                <div class="modifier-header">
+                                    <span class="modifier-title"><span class="modifier-icon">🔧</span>Modifier: Unreal_Level_Art</span>
+                                    <span class="visibility-icon">👁</span>
+                                </div>
+                                <div class="modifier-body">
+                                    <div class="modifier-property-row">
+                                        <span class="modifier-property-label">Environment Design:</span>
+                                        <div class="modifier-value-bar-container">
+                                            <div class="modifier-value-fill" data-width="65%"></div>
+                                            <span class="modifier-value-percent">6.5 / 10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-
-                        <!-- Workflow outliner -->
-                        <div>
-                            <div class="section-header" style="text-align: left; margin-bottom: 2.5rem;">
-                                <span class="section-tag">Outliner</span>
-                                <h2 class="section-title">Creation Workflow</h2>
-                            </div>
-                            
-                            <div class="workflow-layout-split">
-                                <div class="workflow-timeline">
-                                    <div class="workflow-step active-step" data-step="1">
-                                        <div class="workflow-dot"></div>
-                                        <h3>1. Vertex & Mesh Modeling</h3>
-                                        <p>Extruding the trunk mesh, shaping branches, and building primary low-poly leaves using Blender edit mode vertices.</p>
-                                    </div>
-                                    <div class="workflow-step" data-step="2">
-                                        <div class="workflow-dot"></div>
-                                        <h3>2. Silhouette & Outline Checks</h3>
-                                        <p>Inspecting model outlines and topology silhouettes in object mode to ensure readability from far camera distances.</p>
-                                    </div>
-                                    <div class="workflow-step" data-step="3">
-                                        <div class="workflow-dot"></div>
-                                        <h3>3. Shading & Seasonal Variants</h3>
-                                        <p>Assigning material slots and color groups in Blender to easily generate Summer green or Autumn yellow leaf variants.</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="workflow-viewer-panel">
-                                    <div class="workflow-viewer-header">active_workflow_preview.png</div>
-                                    <div class="workflow-viewer-body">
-                                        <img src="gallery_assets/user_tree_1.png" alt="Blender Model Stage Preview" id="workflow-preview-img">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+
+                    <!-- Creation Workflow -->
+                    <div class="workflow-section">
+                        <div class="section-header" style="text-align: left; margin-bottom: 2.5rem;">
+                            <span class="section-tag">Outliner</span>
+                            <h2 class="section-title">Creation Workflow</h2>
+                        </div>
+                        
+                        <div class="workflow-layout-split">
+                            <div class="workflow-timeline">
+                                <div class="workflow-step active-step" data-step="1">
+                                    <div class="workflow-dot"></div>
+                                    <h3>1. Vertex & Mesh Modeling</h3>
+                                    <p>Extruding the trunk mesh, shaping branches, and building primary low-poly leaves using Blender edit mode vertices.</p>
+                                </div>
+                                <div class="workflow-step" data-step="2">
+                                    <div class="workflow-dot"></div>
+                                    <h3>2. Silhouette & Outline Checks</h3>
+                                    <p>Inspecting model outlines and topology silhouettes in object mode to ensure readability from far camera distances.</p>
+                                </div>
+                                <div class="workflow-step" data-step="3">
+                                    <div class="workflow-dot"></div>
+                                    <h3>3. Shading & Seasonal Variants</h3>
+                                    <p>Assigning material slots and color groups in Blender to easily generate Summer green or Autumn yellow leaf variants.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-viewer-panel">
+                                <div class="workflow-viewer-header">active_workflow_preview.png</div>
+                                <div class="workflow-viewer-body">
+                                    <img src="gallery_assets/user_tree_1.png" alt="Blender Model Stage Preview" id="workflow-preview-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 

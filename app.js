@@ -613,30 +613,39 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
             const submitBtn = contactForm.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
             
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Initiating Export...';
-            submitBtn.style.background = '#444';
-            submitBtn.style.color = 'var(--orange-active)';
+            submitBtn.textContent = 'Compiling Package...';
+            submitBtn.style.background = '#222';
+            submitBtn.style.color = 'var(--ue5-amber)';
             
             setTimeout(() => {
-                submitBtn.textContent = 'Render Successfully Exported!';
+                submitBtn.textContent = 'Project Packaged!';
                 submitBtn.style.background = '#2eb85c';
                 submitBtn.style.color = '#fff';
                 submitBtn.style.boxShadow = '0 0 15px rgba(46, 184, 92, 0.3)';
+                
+                // Construct pre-filled mailto redirect to open user's email client
+                const subject = encodeURIComponent(`Blueprint Request from ${name}`);
+                const body = encodeURIComponent(`Client Identifier: ${name}\nCallback Address: ${email}\n\nRequest Parameters:\n${message}`);
+                window.location.href = `mailto:mathur.raghav1235@gmail.com?subject=${subject}&body=${body}`;
                 
                 contactForm.reset();
                 
                 setTimeout(() => {
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
-                    submitBtn.style.background = 'var(--orange-active)';
+                    submitBtn.style.background = 'var(--ue5-amber)';
                     submitBtn.style.color = 'var(--bg-darker)';
                     submitBtn.style.boxShadow = 'none';
                 }, 3000);
-            }, 1500);
+            }, 1200);
         });
     }
 });

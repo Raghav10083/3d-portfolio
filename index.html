@@ -75,6 +75,9 @@
                         <div class="outliner-item" data-target="gallery" data-item="rock">
                             <span class="tree-icon">◆</span> BP_LowPoly_Rock
                         </div>
+                        <div class="outliner-item" data-target="gallery" data-item="interior">
+                            <span class="tree-icon">◆</span> BP_Unreal_Interior
+                        </div>
                     </div>
                     <div class="outliner-item" data-target="skills">
                         <span class="tree-icon">🔧</span> Details_Components
@@ -366,6 +369,63 @@
                                 <div class="card-meta">
                                     <span class="tool-badge">Substance Painter</span>
                                     <span class="tool-badge">User Work</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Unreal Interior Card -->
+                        <div class="gallery-card" data-category="unreal" id="card-interior">
+                            <div class="card-header-tab">
+                                <span><span class="object-icon">◆</span>BP_Unreal_Interior.uasset</span>
+                                <span class="visibility-icon">👁</span>
+                            </div>
+                            <div class="card-img-container">
+                                <video src="gallery_assets/user_interior.mp4" class="transform-target" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+                            </div>
+                            <div class="card-info">
+                                <h3 class="card-title">Real-Time Unreal Interior</h3>
+                                <p class="card-desc">Real-time interior lighting and arch-vis scene constructed in Unreal Engine. Utilized external asset libraries from the internet to arrange furniture layout, configure PBR materials, and bake high-fidelity soft shadow maps.</p>
+                                
+                                <!-- Interactive transform box -->
+                                <div class="transform-fields-panel">
+                                    <div class="transform-title">Mesh Transform</div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation X</span>
+                                            <span class="slider-label-value" id="val-interior-x">0°</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateX" min="-180" max="180" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="slider-container">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Rotation Y</span>
+                                            <span class="slider-label-value" id="val-interior-y">0°</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="rotateY" min="-180" max="180" value="0">
+                                        </div>
+                                    </div>
+                                    <div class="slider-container" style="margin-bottom: 0.8rem;">
+                                        <div class="slider-labels">
+                                            <span class="slider-label-name">Scale</span>
+                                            <span class="slider-label-value" id="val-interior-scale">1.00x</span>
+                                        </div>
+                                        <div class="slider-input-wrapper">
+                                            <input type="range" class="transform-slider-input" data-transform="scale" min="0.5" max="1.5" step="0.05" value="1.0">
+                                        </div>
+                                    </div>
+                                    <div class="transform-row">
+                                        <div class="transform-col"><span class="transform-label label-neutral" style="background:#444">Actors</span><span class="transform-val">142</span></div>
+                                        <div class="transform-col"><span class="transform-label label-neutral" style="background:#444">Lights</span><span class="transform-val">12</span></div>
+                                        <div class="transform-col"><span class="transform-label label-neutral" style="background:#444">Bake</span><span class="transform-val">GPU LM</span></div>
+                                    </div>
+                                </div>
+
+                                <div class="card-meta">
+                                    <span class="tool-badge">Unreal Engine 5</span>
+                                    <span class="tool-badge">Asset Kitbash</span>
                                 </div>
                             </div>
                         </div>

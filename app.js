@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (itemTarget === 'chest') targetCard = document.getElementById('card-chest');
                 if (itemTarget === 'dungeon') targetCard = document.getElementById('card-dungeon');
                 if (itemTarget === 'rock') targetCard = document.getElementById('card-rock');
+                if (itemTarget === 'interior') targetCard = document.getElementById('card-interior');
 
                 if (targetCard) {
                     setTimeout(() => {
@@ -198,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (cardId === 'card-chest') prefix = 'chest';
             if (cardId === 'card-dungeon') prefix = 'dungeon';
             if (cardId === 'card-rock') prefix = 'rock';
+            if (cardId === 'card-interior') prefix = 'interior';
 
             const valX = document.getElementById(`val-${prefix}-x`);
             const valY = document.getElementById(`val-${prefix}-y`);
